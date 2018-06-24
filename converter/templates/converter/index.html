@@ -1,0 +1,24 @@
+<table>
+    <thead>
+        <tr>
+            <th>Link</th>
+            <th>Published</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if latest_link_list %}
+            {% for link in latest_link_list %}
+            <tr>
+                
+                    <td>{{ link.link_text }}</td>
+                    <td>{{ link.pub_date }}</td>
+                
+            </tr> 
+            {% endfor %}
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+    </tbody>
+</table>
+
+<a href="{% url 'link_new' %}">New link</a>
