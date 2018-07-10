@@ -8,7 +8,7 @@ from django.utils import timezone
 
 class Link(models.Model):
     link_text = models.CharField(max_length=200, default="")
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.link_text

@@ -1,5 +1,9 @@
-<form action="/converter/link/new/" method="post">
+{% extends 'converter/base.html' %}
+{% block content %}
+<br>
+<form method="POST" class="link-form">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <input type="submit" value="Submit" />
 </form>
+{% endblock content %}

@@ -1,24 +1,26 @@
-<table>
-    <thead>
-        <tr>
-            <th>Link</th>
-            <th>Published</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% if latest_link_list %}
-            {% for link in latest_link_list %}
+{% extends 'converter/base.html' %}
+{% block content %}
+<div class="panel panel-default">
+    <h1>Link history</h1>
+    <table class="table table-striped">
+        <thead>
             <tr>
-                
+                <th scope="col">Link</th>
+                <th scope="col">Published</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if latest_link_list %}
+                {% for link in latest_link_list %}
+                <tr>
                     <td>{{ link.link_text }}</td>
-                    <td>{{ link.pub_date }}</td>
-                
-            </tr> 
-            {% endfor %}
-        {% else %}
-            <p>No polls are available.</p>
-        {% endif %}
-    </tbody>
-</table>
+                    <td>{{ link.pub_date }}</td>  
+                </tr> 
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+<a href="{% url 'converter:download' %}" class="btn btn-primary">New link</a>
+{% endblock content %}
+<br><br><br><br>
 
-<a href="{% url 'link_new' %}">New link</a>

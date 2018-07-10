@@ -5,6 +5,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^link/new/$', views.link_new, name='link_new'),
-    url(r'^submit/$', views.link_new, name='index')
+    url(r'^new/$', views.download, name='download'),
 ]
